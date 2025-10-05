@@ -1,3 +1,4 @@
+using UI.MainScene.Store.Interface;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,9 +12,11 @@ namespace UI.MainScene.Store
         
         private int _price;
 
-        public void Initialize()
+        public void Initialize(IStoreType storeType)
         {
-            
+            _price = storeType.Price;
+            tipText = tipWindow.GetComponent<Text>();
+            GetComponent<Button>().onClick.AddListener(storeType.ClickAction);
         }
         
         public void OnPointerEnter(PointerEventData eventData)
