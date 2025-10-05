@@ -15,6 +15,8 @@ namespace UI
         private Vector3 _startPosition;
         private bool _isInQueue;
 
+        private GameObject parent;
+
         public void Initialize(BaseItem item,GridObject grid)
         {
             CurrentItem = item;
@@ -28,6 +30,15 @@ namespace UI
         {
             if (_isInQueue)
             {
+                parent=transform.parent.gameObject;
+                GameObject newGameObject=new GameObject
+                {
+                    transform =
+                    {
+                        parent = parent.transform
+                    }
+                };
+                transform.SetParent(GameObject.Find("Canvas").transform);
                 _startPosition = transform.position;
             }
         }
@@ -36,6 +47,7 @@ namespace UI
         {
             if (_isInQueue)
             {
+                
                 transform.position = eventData.position;
             }
             
@@ -54,7 +66,11 @@ namespace UI
                     _startPosition = standardPos;
                     _isInQueue = false;
                 }
-
+                else
+                {
+                    transform.SetParent( parent.transform);
+                }
+                Destroy(parent.transform.GetChild(0).gameObject);
                 transform.position = _startPosition;
             }
         }

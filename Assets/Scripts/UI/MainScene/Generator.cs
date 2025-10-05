@@ -3,6 +3,7 @@ using System.Threading;
 using DefaultNamespace.Items;
 using UI.MainScene;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -16,17 +17,16 @@ namespace UI
 
         public GridObject gridObject;
         
-        private int currentGeneratorSize;
         private float currentTime;
         
     
         void Start()
         {
-            currentGeneratorSize = unlockedGeneratorSize;
             if (GeneratorsObjectList.Count!=maxGeneratorSize)
             {
                 throw new UnityException("GeneratorsObjectList count is not equal to maxGeneratorSize");
             }
+            UpdateView();
         }
         
         
@@ -43,17 +43,32 @@ namespace UI
             if (currentTime >= maxGenerateTime)
             {
                 BaseItem randomItem = RandomItem.GetRandomItem();
-                foreach (GameObject parent in GeneratorsObjectList)
+                for (int i = 0; i < unlockedGeneratorSize; i++)
                 {
-                    if (parent.transform.childCount == 0)
+                    if (GeneratorsObjectList[i].transform.childCount == 0)
                     {
-                        GameObject newItem=Instantiate(Resources.Load<GameObject>("Prefabs/DragItem"), parent.transform);
+                        GameObject newItem=Instantiate(Resources.Load<GameObject>("Prefabs/DragItem"), GeneratorsObjectList[i].transform);
                         newItem.name=randomItem.CraftType+" "+randomItem.IPType;
                         newItem.GetComponent<DragItem>().Initialize(randomItem,gridObject);
                         break;
                     }
                 }
                 currentTime = 0;
+            }
+        }
+
+        public void UpdateView()
+        {
+            for (int i = 0; i < GeneratorsObjectList.Count; i++)
+            {
+                if (i < unlockedGeneratorSize)
+                {
+                    GeneratorsObjectList[i].GetComponent<Image>().color=new Color32(255,255,255,255);
+                }
+                else
+                {
+                    GeneratorsObjectList[i].GetComponent<Image>().color=new Color32(255,100,100,255);
+                }
             }
         }
     }

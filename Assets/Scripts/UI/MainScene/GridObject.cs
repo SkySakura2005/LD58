@@ -167,7 +167,7 @@ namespace UI.MainScene
             }
             currentCol = startCol;
             while (currentCol< _gridLayoutGroup.constraintCount&&
-                    _itemGrid[++currentRow, ++currentCol]!=null &&
+                    _itemGrid[currentRow, ++currentCol]!=null &&
                    _itemGrid[currentRow, currentCol].CraftType == currentItem.CraftType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemHorizontalByCraft.Add(new Vector2(currentRow,currentCol));

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5363785947838758977}
   - component: {fileID: 3819223460065559767}
   - component: {fileID: 9157853035627336594}
-  - component: {fileID: 2410780913115720943}
-  m_Layer: 5
+  - component: {fileID: 6070149913307952704}
+  m_Layer: 6
   m_Name: DragItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,15 +89,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f30670b2be44c42940bb632fa39e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.DragItem
---- !u!210 &2410780913115720943
-SortingGroup:
+--- !u!114 &6070149913307952704
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8749626208322382564}
   m_Enabled: 1
-  m_SortingLayerID: 2075313701
-  m_SortingLayer: 2
-  m_SortingOrder: 3
-  m_SortAtRoot: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
