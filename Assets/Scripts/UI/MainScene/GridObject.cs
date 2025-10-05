@@ -199,6 +199,7 @@ namespace UI.MainScene
                             .transform.DetachChildren();
                         Destroy(toBeDeleted.gameObject);
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
+                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -215,6 +216,7 @@ namespace UI.MainScene
                             .transform.DetachChildren();
                         Destroy(toBeDeleted.gameObject);
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
+                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -231,6 +233,7 @@ namespace UI.MainScene
                             .transform.DetachChildren();
                         Destroy(toBeDeleted.gameObject);
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
+                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -247,10 +250,12 @@ namespace UI.MainScene
                             .transform.DetachChildren();
                         Destroy(toBeDeleted.gameObject);
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
+                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
-
+            
+            _itemGrid[row, col] = null;
             Transform startContent = _gridObjectList[row * UnlockedGrid.GetLength(1) + col]
                 .transform.GetChild(0);
             _gridObjectList[row * UnlockedGrid.GetLength(1) + col]

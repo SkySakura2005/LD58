@@ -1,3 +1,4 @@
+using DefaultNamespace.Statics;
 using UI.MainScene.Store.Interface;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,6 +18,7 @@ namespace UI.MainScene.Store
             _price = storeType.Price;
             tipText = tipWindow.GetComponent<Text>();
             GetComponent<Button>().onClick.AddListener(storeType.ClickAction);
+            GetComponent<Button>().onClick.AddListener(DecreasePrice);
         }
         
         public void OnPointerEnter(PointerEventData eventData)
@@ -27,6 +29,15 @@ namespace UI.MainScene.Store
         public void OnPointerExit(PointerEventData eventData)
         {
             tipWindow.SetActive(false);
+        }
+
+        private void DecreasePrice()
+        {
+            if (LevelStatics.CurrentScore - _price < 0)
+            {
+                return;
+            }
+            LevelStatics.CurrentScore-=_price;
         }
     }
 }

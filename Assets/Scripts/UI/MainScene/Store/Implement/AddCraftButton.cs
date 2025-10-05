@@ -9,7 +9,7 @@ namespace UI.MainScene.Store.Implement
         public string Text { get; }
         public void ClickAction()
         {
-            LevelStatics.maxCraftType++;
+            LevelStatics.MaxCraftType++;
         }
     }
 }

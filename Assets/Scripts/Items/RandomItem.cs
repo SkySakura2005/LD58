@@ -50,7 +50,7 @@ namespace DefaultNamespace.Items
                 {
                     randomCraftTypeValue = CraftType.Decoration;
                 }
-            }while ((int)randomCraftTypeValue >=LevelStatics.maxCraftType);
+            }while ((int)randomCraftTypeValue >=LevelStatics.MaxCraftType);
 
             BaseItem randomItem = new BaseItem(Resources.Load<Sprite>("ArtAssets/Items/Item_"+(int)randomIPTypeValue+"_"+(int)randomCraftTypeValue)
                 ,(IPType)randomIPTypeValue,randomCraftTypeValue);
