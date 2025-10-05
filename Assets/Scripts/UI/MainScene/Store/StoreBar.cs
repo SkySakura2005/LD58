@@ -19,7 +19,7 @@ namespace UI.MainScene.Store
         
         private Coroutine _moveCoroutine;
 
-        private void Awake()
+        private void Start()
         {
             addSpaceButton.Initialize(new AddSpaceButton());
             addCraftButton.Initialize(new AddCraftButton());

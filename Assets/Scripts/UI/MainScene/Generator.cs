@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using DefaultNamespace.Items;
+using DefaultNamespace.Statics;
 using UI.MainScene;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,11 @@ namespace UI
         // Update is called once per frame
         void Update()
         {
+            if (LevelStatics.MaxUnlockedQueue != unlockedGeneratorSize)
+            {
+                unlockedGeneratorSize = LevelStatics.MaxUnlockedQueue;
+                UpdateView();
+            }
             UpdateTimer();
         }
         

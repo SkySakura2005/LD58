@@ -6,9 +6,9 @@ namespace UI.MainScene.Store.Implement
     {
         public int Price { get; }
         public string Text { get; }
-        public void ClickAction()
+        public bool ClickAction()
         {
-            
+            return true;
         }
     }
 }

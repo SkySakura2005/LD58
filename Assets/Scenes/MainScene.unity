@@ -308,6 +308,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181170592}
   m_CullTransparentMesh: 1
+--- !u!1 &205259471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205259472}
+  - component: {fileID: 205259474}
+  - component: {fileID: 205259473}
+  m_Layer: 5
+  m_Name: UnlockPage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &205259472
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205259471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1694069871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -99.781, y: 0.0010242}
+  m_SizeDelta: {x: 2119.6, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &205259473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205259471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &205259474
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205259471}
+  m_CullTransparentMesh: 1
 --- !u!1 &293252962
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.MainScene.Store.StoreButton
   tipWindow: {fileID: 2108538683}
   tipText: {fileID: 0}
+  tipBox: {fileID: 1835053965}
 --- !u!1 &326752150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,6 +3337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.MainScene.Store.StoreButton
   tipWindow: {fileID: 2110517628}
   tipText: {fileID: 0}
+  tipBox: {fileID: 1835053965}
 --- !u!1 &1179394509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,6 +4409,7 @@ RectTransform:
   - {fileID: 1703061212}
   - {fileID: 2055871640}
   - {fileID: 1269204867}
+  - {fileID: 205259472}
   m_Father: {fileID: 155185578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5013,6 +5091,7 @@ GameObject:
   - component: {fileID: 1835053962}
   - component: {fileID: 1835053964}
   - component: {fileID: 1835053963}
+  - component: {fileID: 1835053965}
   m_Layer: 5
   m_Name: TipBox
   m_TagString: Untagged
@@ -5035,9 +5114,9 @@ RectTransform:
   - {fileID: 647387621}
   m_Father: {fileID: 155185578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -567, y: -422}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 393, y: -145}
   m_SizeDelta: {x: 361, y: 198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835053963
@@ -5078,6 +5157,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835053961}
   m_CullTransparentMesh: 1
+--- !u!114 &1835053965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835053961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134b451e71944a5593481e2d107e882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.MainScene.Store.TipBox
+  openedPosition: {x: 393, y: 138}
+  closedPosition: {x: 393, y: -137}
+  tipText: {fileID: 647387622}
 --- !u!1 &1845297779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.MainScene.Store.StoreButton
   tipWindow: {fileID: 480116825}
   tipText: {fileID: 0}
+  tipBox: {fileID: 1835053965}
 --- !u!1 &2055871639
 GameObject:
   m_ObjectHideFlags: 0

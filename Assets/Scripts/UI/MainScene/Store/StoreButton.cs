@@ -11,14 +11,25 @@ namespace UI.MainScene.Store
         public GameObject tipWindow;
         public Text tipText;
         
+        public TipBox tipBox;
+        
         private int _price;
 
         public void Initialize(IStoreType storeType)
         {
             _price = storeType.Price;
             tipText = tipWindow.GetComponent<Text>();
-            GetComponent<Button>().onClick.AddListener(storeType.ClickAction);
-            //GetComponent<Button>().onClick.AddListener(DecreasePrice);
+            GetComponent<Button>().onClick.AddListener(() =>
+            {
+                if (storeType.ClickAction())
+                {
+                    tipBox.MakeMove("Successed!");
+                }
+                else
+                {
+                    tipBox.MakeMove("Failed!");
+                }
+            }); 
         }
         
         public void OnPointerEnter(PointerEventData eventData)

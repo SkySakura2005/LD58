@@ -7,9 +7,15 @@ namespace UI.MainScene.Store.Implement
     {
         public int Price { get; }
         public string Text { get; }
-        public void ClickAction()
+        public bool ClickAction()
         {
+            if (LevelStatics.CurrentScore-Price<0||LevelStatics.MaxCraftType==5)
+            {
+                return false;
+            }
             LevelStatics.MaxCraftType++;
+            LevelStatics.CurrentScore-=Price;
+            return true;
         }
     }
 }
