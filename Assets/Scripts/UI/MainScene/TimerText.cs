@@ -7,23 +7,33 @@ namespace DefaultNamespace
 {
     public class TimerText:MonoBehaviour
     {
-        private Text text;
-        private float timer;
+        private Text _text;
+        private float _timer;
+
+        public GameObject winPage;
+        public GameObject losePage;
 
         private void Start()
         {
-            text = GetComponent<Text>();
-            timer = LevelStatics.MaxTime;
+            _text = GetComponent<Text>();
+            _timer = LevelStatics.MaxTime;
         }
 
         private void Update()
         {
-            if (timer <= 0)
+            if (_timer <= 0)
             {
-                
+                if (LevelStatics.CurrentScore >= LevelStatics.GoalScore)
+                {
+                    winPage.SetActive(true);
+                }
+                else
+                {
+                    losePage.SetActive(true);
+                }
             }
-            text.text = ((int)timer).ToString();
-            timer -= Time.deltaTime;
+            _text.text = ((int)_timer).ToString();
+            _timer -= Time.deltaTime;
         }
     }
 }

@@ -15,10 +15,6 @@ namespace UI.MainScene
 
         private void Update()
         {
-            if (LevelStatics.CurrentScore >= LevelStatics.GoalScore)
-            {
-                
-            }
             text.text=LevelStatics.CurrentScore.ToString();
             
         }

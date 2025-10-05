@@ -18,7 +18,7 @@ namespace UI.MainScene.Store
             _price = storeType.Price;
             tipText = tipWindow.GetComponent<Text>();
             GetComponent<Button>().onClick.AddListener(storeType.ClickAction);
-            GetComponent<Button>().onClick.AddListener(DecreasePrice);
+            //GetComponent<Button>().onClick.AddListener(DecreasePrice);
         }
         
         public void OnPointerEnter(PointerEventData eventData)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UI.MainScene.Store.Implement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -20,7 +21,9 @@ namespace UI.MainScene.Store
 
         private void Awake()
         {
-            
+            addSpaceButton.Initialize(new AddSpaceButton());
+            addCraftButton.Initialize(new AddCraftButton());
+            addQueueButton.Initialize(new AddQueueButton());
         }
 
         public void OnPointerEnter(PointerEventData eventData)
