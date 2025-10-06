@@ -52,7 +52,8 @@ namespace DefaultNamespace.Items
                 }
             }while ((int)randomCraftTypeValue >=LevelStatics.MaxCraftType);
             BaseItem randomItem = new BaseItem(Resources.Load<Sprite>("ArtAssets/Items/Item_"+(int)randomIPTypeValue+"_"+(int)randomCraftTypeValue)
-                ,(IPType)randomIPTypeValue,randomCraftTypeValue);
+                ,(IPType)randomIPTypeValue,randomCraftTypeValue,
+                Resources.LoadAll<Sprite>("ArtAssets/Animation/Goods/ItemAnim_"+(int)randomIPTypeValue+"_"+(int)randomCraftTypeValue));
             return randomItem;
         }
     }

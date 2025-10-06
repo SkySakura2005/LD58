@@ -17,8 +17,7 @@ namespace UI.MainScene.Store.Implement
             {
                 return false;
             }
-
-            GridObject gridObject = GameObject.Find("Canvas/GridObject").GetComponent<GridObject>();
+            LevelStatics.CurrentScore-=Price;
             for (int i = 0; i < gridObject.UnlockedGrid.GetLength(0); i++)
             {
                 for (int j = 0; j < gridObject.UnlockedGrid.GetLength(1); j++)

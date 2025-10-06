@@ -1,4 +1,5 @@
 
+using System.Collections;
 using DefaultNamespace.Items;
 
 using UI.MainScene;
@@ -74,6 +75,18 @@ namespace UI
                 transform.position = _startPosition;
             }
         }
-        
+
+        public IEnumerator ClearCoroutine()
+        {
+            Image clearImage = GetComponent<Image>();
+            Debug.Log(CurrentItem.ClearAnimation.Length);
+            for (int i = 0; i < CurrentItem.ClearAnimation.Length; i++)
+            {
+                clearImage.sprite = CurrentItem.ClearAnimation[i];
+                clearImage.rectTransform.sizeDelta = CurrentItem.ClearAnimation[i].rect.size;
+                yield return new WaitForSeconds(0.04f);
+            }
+            Destroy(gameObject);
+        }
     }
 }
