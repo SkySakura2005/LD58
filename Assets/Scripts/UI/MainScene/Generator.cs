@@ -82,7 +82,7 @@ namespace UI
             for (int i = 0; i < _blindBagAnim.Length; i++)
             {
                 parentImage.sprite = _blindBagAnim[i];
-                yield return new WaitForSeconds(0.04f);
+                yield return new WaitForSeconds(0.02f);
             }
 
             float alpha = 0;
