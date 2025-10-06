@@ -8,6 +8,9 @@ namespace UI.MainScene.Store
 {
     public class StoreButton:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
+        public GameObject unlockPage;
+        public GridObject gridObject;
+        
         public GameObject tipWindow;
         public Text tipText;
         
@@ -21,6 +24,11 @@ namespace UI.MainScene.Store
             tipText = tipWindow.GetComponent<Text>();
             GetComponent<Button>().onClick.AddListener(() =>
             {
+                if (storeType is ISpaceButton)
+                {
+                    ((ISpaceButton)storeType).gridObject=gridObject;
+                    ((ISpaceButton)storeType).unlockPage = unlockPage;
+                }
                 if (storeType.ClickAction())
                 {
                     tipBox.MakeMove("Successed!");
