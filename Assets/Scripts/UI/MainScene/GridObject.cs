@@ -287,7 +287,7 @@ namespace UI.MainScene
                 {
                     LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
                 }
-                else if(itemHorizontalByIP[0]==itemHorizontalByCraft[0]&&itemHorizontalByIP[1]==itemHorizontalByCraft[1])
+                else if(itemHorizontalByIP.Count == 2&&itemHorizontalByIP[0]==itemHorizontalByCraft[0]&&itemHorizontalByIP[1]==itemHorizontalByCraft[1])
                 {
                     LevelStatics.CurrentScore += AddScoreStatics.ScoreE;
                 }
@@ -347,7 +347,7 @@ namespace UI.MainScene
                 {
                     LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
                 }
-                else if(itemVerticalByIP[0]==itemVerticalByCraft[0]&&itemVerticalByIP[1]==itemVerticalByCraft[1])
+                else if(itemVerticalByIP.Count == 2&&itemVerticalByIP[0]==itemVerticalByCraft[0]&&itemVerticalByIP[1]==itemVerticalByCraft[1])
                 {
                     LevelStatics.CurrentScore += AddScoreStatics.ScoreE;
                 }
