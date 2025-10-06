@@ -5,7 +5,7 @@ namespace UI.MainScene.Store.Implement
 {
     public class AddQueueButton:IStoreType
     {
-        public int Price { get; } = 10;
+        public int Price { get; } = 50;
         public string Text { get; }
         public bool ClickAction()
         {
