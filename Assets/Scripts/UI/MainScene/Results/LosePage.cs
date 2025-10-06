@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using DefaultNamespace.Statics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,7 @@ namespace UI.MainScene.Results
         {
             Time.timeScale = 0;
             scoreText.text = LevelStatics.CurrentScore.ToString();
+            AudioManager.Instance.PlaySound("Lose");
         }
 
         private void OnDisable()

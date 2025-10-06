@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using DefaultNamespace.Items;
 using DefaultNamespace.Statics;
 using UnityEngine;
@@ -209,6 +210,7 @@ namespace UI.MainScene
                 return;
             }
             Debug.Log("满足三消条件！");
+            AudioManager.Instance.PlaySound("Clear");
 
             if (itemVerticalByIP.Count >= 2)
             {
