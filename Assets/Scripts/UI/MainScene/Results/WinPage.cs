@@ -1,3 +1,4 @@
+using System.IO;
 using Audio;
 using DefaultNamespace.Statics;
 using UnityEngine;
@@ -16,19 +17,22 @@ namespace UI.MainScene.Results
         {
             nextButton.onClick.AddListener(() =>
             {
-                if (LevelStatics.CurrentLevel < 10)
+                if (LevelStatics.CurrentLevel == LevelStatics.MaxLevel&&LevelStatics.MaxLevel<10)
                 {
                     LevelStatics.CurrentLevel++;
+                    LevelStatics.MaxLevel++;
                     LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel]);
                 }
                 SceneManager.LoadSceneAsync(2);
             });
             backButton.onClick.AddListener(() =>
             {
-                if (LevelStatics.CurrentLevel < 10)
+                if (LevelStatics.CurrentLevel == LevelStatics.MaxLevel&&LevelStatics.MaxLevel<10)
                 {
-                    LevelStatics.CurrentLevel++;
+                    LevelStatics.MaxLevel++;
                 }
+                string config="1"+(LevelStatics.MaxLevel-1).ToString();
+                File.WriteAllText(Path.Combine(Application.persistentDataPath , "levelData.txt"), config);
                 SceneManager.LoadSceneAsync(1);
             });
         }

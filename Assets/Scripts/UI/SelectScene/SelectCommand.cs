@@ -12,11 +12,14 @@ namespace UI.SelectScene
         public Button[] selectButtons;
         private void Start()
         {
-            backButton.onClick.AddListener(()=>SceneManager.LoadSceneAsync(0));
+            backButton.onClick.AddListener(()=>
+            {
+                SceneManager.LoadSceneAsync(0);
+            });
             for (int i = 0; i < selectButtons.Length; i++)
             {
                 int index = i;
-                if (i >= LevelStatics.CurrentLevel)
+                if (i >= LevelStatics.MaxLevel)
                 {
                     selectButtons[i].interactable = false;
                     selectButtons[i].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
@@ -25,8 +28,17 @@ namespace UI.SelectScene
                 {
                     selectButtons[i].onClick.AddListener(()=>
                     {
-                        LevelStatics.LoadLevels(LevelStatics.LevelsDatas[index]);
-                        SceneManager.LoadSceneAsync(2);
+                        if (LevelStatics.isNew)
+                        {
+                            LevelStatics.isNew=false;
+                            SceneManager.LoadSceneAsync(3);
+                        }
+                        else
+                        {
+                            LevelStatics.LoadLevels(LevelStatics.LevelsDatas[index]);
+                            SceneManager.LoadSceneAsync(2);
+                        }
+                        
                     });
                 }
                 

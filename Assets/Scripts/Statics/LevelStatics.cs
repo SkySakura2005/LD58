@@ -10,6 +10,7 @@ namespace DefaultNamespace.Statics
         public static bool isNew = true;
         
         public static int CurrentLevel = 1;
+        public static int MaxLevel = 1;
         public static ILevelData[] LevelsDatas=new ILevelData[10]
         {
             new Level1Data(),new Level2Data(),new Level3Data(),new Level4Data(),new Level5Data(),
