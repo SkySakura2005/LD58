@@ -5,7 +5,7 @@ namespace UI.MainScene.Store.Implement
 {
     public class AddCraftButton:IStoreType
     {
-        public int Price { get; }
+        public int Price { get; } = 100000000;
         public string Text { get; }
         public bool ClickAction()
         {

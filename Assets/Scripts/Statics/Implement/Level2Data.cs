@@ -6,7 +6,7 @@ namespace Statics.Implement
     {
         public int CraftType { get; } = 3;
         public int UnlockedQueue { get; } = 2;
-        public float MaxTime { get; } = 40;
-        public int GoalScore { get; } = 15;
+        public float MaxTime { get; } = 3;
+        public int GoalScore { get; } = 0;
     }
 }

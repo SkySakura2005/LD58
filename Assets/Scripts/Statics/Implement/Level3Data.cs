@@ -4,9 +4,9 @@ namespace Statics.Implement
 {
     public class Level3Data:ILevelData
     {
-        public int CraftType { get; }
-        public int UnlockedQueue { get; }
-        public float MaxTime { get; }
-        public int GoalScore { get; }
+        public int CraftType { get; } = 4;
+        public int UnlockedQueue { get; } = 2;
+        public float MaxTime { get; }=40;
+        public int GoalScore { get; } = 25;
     }
 }

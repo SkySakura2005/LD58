@@ -8249,7 +8249,7 @@ MonoBehaviour:
   - {fileID: 1092005254}
   - {fileID: 658100111}
   - {fileID: 1633716373}
-  maxGenerateTime: 1.8
+  maxGenerateTime: 2
   gridObject: {fileID: 742056823}
 --- !u!210 &1845297782
 SortingGroup:
