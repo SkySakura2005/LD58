@@ -31,6 +31,8 @@ namespace DefaultNamespace
                 {
                     losePage.SetActive(true);
                 }
+
+                _timer += 0.5f;
             }
             _text.text = ((int)_timer).ToString();
             _timer -= Time.deltaTime;

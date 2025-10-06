@@ -221,9 +221,7 @@ namespace UI.MainScene
                     {
                         Transform toBeDeleted = _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
                             .transform.GetChild(0);
-                        _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
-                            .transform.DetachChildren();
-                        Destroy(toBeDeleted.gameObject);
+                        StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
                         Debug.Log(pos.x+" "+pos.y);
                     }
@@ -238,9 +236,7 @@ namespace UI.MainScene
                     {
                         Transform toBeDeleted = _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
                             .transform.GetChild(0);
-                        _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
-                            .transform.DetachChildren();
-                        Destroy(toBeDeleted.gameObject);
+                        StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
                         Debug.Log(pos.x+" "+pos.y);
                     }
@@ -255,9 +251,7 @@ namespace UI.MainScene
                     {
                         Transform toBeDeleted = _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
                             .transform.GetChild(0);
-                        _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
-                            .transform.DetachChildren();
-                        Destroy(toBeDeleted.gameObject);
+                        StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
                         Debug.Log(pos.x+" "+pos.y);
                     }
@@ -272,9 +266,7 @@ namespace UI.MainScene
                     {
                         Transform toBeDeleted = _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
                             .transform.GetChild(0);
-                        _gridObjectList[(int)pos.x * UnlockedGrid.GetLength(1) + (int)pos.y]
-                            .transform.DetachChildren();
-                        Destroy(toBeDeleted.gameObject);
+                        StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
                         Debug.Log(pos.x+" "+pos.y);
                     }
@@ -284,9 +276,7 @@ namespace UI.MainScene
             _itemGrid[row, col] = null;
             Transform startContent = _gridObjectList[row * UnlockedGrid.GetLength(1) + col]
                 .transform.GetChild(0);
-            _gridObjectList[row * UnlockedGrid.GetLength(1) + col]
-                .transform.DetachChildren();
-            Destroy(startContent.gameObject);
+            StartCoroutine(startContent.GetComponent<DragItem>().ClearCoroutine());
         }
 
         private void ChangeScore(List<Vector2> itemVerticalByIP, List<Vector2> itemHorizontalByIP,
