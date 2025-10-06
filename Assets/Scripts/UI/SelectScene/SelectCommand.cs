@@ -35,6 +35,7 @@ namespace UI.SelectScene
                         }
                         else
                         {
+                            LevelStatics.CurrentLevel = index+1;
                             LevelStatics.LoadLevels(LevelStatics.LevelsDatas[index]);
                             SceneManager.LoadSceneAsync(2);
                         }
