@@ -15,7 +15,7 @@ namespace UI.MainScene
 
         private void Update()
         {
-            text.text=LevelStatics.CurrentScore.ToString();
+            text.text=LevelStatics.CurrentScore.ToString()+" / "+LevelStatics.GoalScore.ToString();
             
         }
     }
