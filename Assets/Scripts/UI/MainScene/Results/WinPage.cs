@@ -21,6 +21,8 @@ namespace UI.MainScene.Results
                 {
                     LevelStatics.CurrentLevel++;
                     LevelStatics.MaxLevel++;
+                    string config="1"+(LevelStatics.MaxLevel-1).ToString();
+                    File.WriteAllText(Path.Combine(Application.persistentDataPath , "levelData.txt"), config);
                     LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel-1]);
                     SceneManager.LoadSceneAsync(2);
                 }
