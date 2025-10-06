@@ -110,6 +110,7 @@ namespace UI.MainScene
 
         public void AddToGrid(int row, int col, DragItem dragItem,out Vector2 standardPos)
         {
+            AudioManager.Instance.PlaySound("PlaceUp");
             if (_gridObjectList[row * _gridLayoutGroup.constraintCount + col].transform.childCount != 0)
             {
                 Transform toBeDeleted=_gridObjectList[row * _gridLayoutGroup.constraintCount + col].transform.GetChild(0);
