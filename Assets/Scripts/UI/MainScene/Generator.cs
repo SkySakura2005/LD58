@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using DefaultNamespace.Items;
@@ -18,8 +19,8 @@ namespace UI
 
         public GridObject gridObject;
         
-        private float currentTime;
-        
+        private float[] _currentTime;
+        private Sprite[] _blindBagAnim;
     
         void Start()
         {
@@ -28,6 +29,8 @@ namespace UI
                 throw new UnityException("GeneratorsObjectList count is not equal to maxGeneratorSize");
             }
             unlockedGeneratorSize = LevelStatics.MaxUnlockedQueue;
+            _currentTime = new float[maxGeneratorSize];
+            _blindBagAnim = Resources.LoadAll<Sprite>("ArtAssets/Animation/Goods/BlindBag");
             UpdateView();
         }
         
@@ -46,25 +49,52 @@ namespace UI
         
         private void UpdateTimer()
         {
-            currentTime += Time.deltaTime;
-            if (currentTime >= maxGenerateTime)
+            float perTime = Time.deltaTime;
+            for (int i = 0; i < unlockedGeneratorSize; i++)
             {
-                
-                for (int i = 0; i < unlockedGeneratorSize; i++)
+                if (_currentTime[i] < 0)
                 {
-                    BaseItem randomItem = RandomItem.GetRandomItem();
-                    if (GeneratorsObjectList[i].transform.childCount == 0)
-                    {
-                        GameObject newItem=Instantiate(Resources.Load<GameObject>("Prefabs/DragItem"), GeneratorsObjectList[i].transform);
-                        newItem.name=randomItem.CraftType+" "+randomItem.IPType;
-                        newItem.GetComponent<DragItem>().Initialize(randomItem,gridObject);
-                    }
+                    continue;
                 }
-                currentTime = 0;
+                _currentTime[i] += perTime;
+                if (_currentTime[i] >= maxGenerateTime)
+                {
+                    
+                    BaseItem randomItem = RandomItem.GetRandomItem();
+                    GameObject newItem=Instantiate(Resources.Load<GameObject>("Prefabs/DragItem"), GeneratorsObjectList[i].transform);
+                    newItem.name=randomItem.CraftType+" "+randomItem.IPType;
+                    newItem.GetComponent<DragItem>().Initialize(randomItem,gridObject,this,i);
+                    
+                    _currentTime[i] = -1;
+                    StartCoroutine(OpenAnimation(newItem));
+                }
+                
             }
+            
         }
 
-        public void UpdateView()
+        private IEnumerator OpenAnimation(GameObject newItem)
+        {
+            Image parentImage = newItem.transform.parent.gameObject.GetComponent<Image>();
+            Image newItemImage = newItem.GetComponent<Image>();
+            newItemImage.color = new Color(1, 1, 1, 0);
+            newItem.GetComponent<DragItem>().enabled = false;
+            for (int i = 0; i < _blindBagAnim.Length; i++)
+            {
+                parentImage.sprite = _blindBagAnim[i];
+                yield return new WaitForSeconds(0.04f);
+            }
+
+            float alpha = 0;
+            while (alpha < 1)
+            {
+                alpha += Time.deltaTime*4;
+                newItemImage.color = new Color(1, 1, 1, alpha );
+                yield return null;
+            }
+            newItem.GetComponent<DragItem>().enabled = true;
+        }
+        private void UpdateView()
         {
             for (int i = 0; i < GeneratorsObjectList.Count; i++)
             {
@@ -74,9 +104,25 @@ namespace UI
                 }
                 else
                 {
-                    GeneratorsObjectList[i].GetComponent<Image>().color=new Color32(255,100,100,255);
+                    GeneratorsObjectList[i].GetComponent<Image>().color=new Color(0.4f,0.4f,0.4f,1);
                 }
             }
+        }
+
+        public IEnumerator ResetAnimation(int index)
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                GeneratorsObjectList[index].transform.position+=new Vector3(10f,0f,0f);
+                yield return null;
+            }
+            GeneratorsObjectList[index].GetComponent<Image>().sprite = _blindBagAnim[0];
+            for (int i = 0; i < 40; i++)
+            {
+                GeneratorsObjectList[index].transform.position-=new Vector3(10f,0f,0f);
+                yield return null;
+            }
+            _currentTime[index] = 0;
         }
     }
 }

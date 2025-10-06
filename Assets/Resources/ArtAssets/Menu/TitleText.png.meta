@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 29646196b7b135e4893364cbc5d223e3
+guid: a6e0c685f9a32d6448cd557c4467d8f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5639302695653416119
-    second: Blind_Bag_00013_0
-  - first:
-      213: -5892513622799378440
-    second: Blind_Bag_00013_1
+      213: -6562209022925866185
+    second: TitleText_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blind_Bag_00013_0
+      name: TitleText_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 321
-        width: 286
-        height: 152
+        x: 0
+        y: 0
+        width: 768
+        height: 335
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bc13536ce3d24e40800000000000000
-      internalID: 5639302695653416119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Blind_Bag_00013_1
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 18
-        width: 303
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f794e67416993ea0800000000000000
-      internalID: -5892513622799378440
+      spriteID: 73bf3a669a95ee4a0800000000000000
+      internalID: -6562209022925866185
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blind_Bag_00013_0: 5639302695653416119
-      Blind_Bag_00013_1: -5892513622799378440
+      TitleText_0: -6562209022925866185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

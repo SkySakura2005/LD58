@@ -15,16 +15,22 @@ namespace UI
         private GridObject _gridObject;
         private Vector3 _startPosition;
         private bool _isInQueue;
+        
+        private Generator _generator;
+        private int _index;
 
         private GameObject parent;
 
-        public void Initialize(BaseItem item,GridObject grid)
+        public void Initialize(BaseItem item,GridObject grid,Generator generator,int index)
         {
             CurrentItem = item;
             _gridObject = grid;
             GetComponent<Image>().sprite=CurrentItem.ItemSprite;
             GetComponent<RectTransform>().sizeDelta=CurrentItem.ItemSprite.rect.size;
             _isInQueue = true;
+            
+            _index = index;
+            _generator = generator;
         }
         
         public void OnBeginDrag(PointerEventData eventData)
@@ -50,6 +56,7 @@ namespace UI
             {
                 
                 transform.position = eventData.position;
+                _gridObject.UpdateGridView(transform.position);
             }
             
         }
@@ -66,6 +73,7 @@ namespace UI
                     _gridObject.CheckCondition(row, col);
                     _startPosition = standardPos;
                     _isInQueue = false;
+                    StartCoroutine(_generator.ResetAnimation(_index));
                 }
                 else
                 {
@@ -79,7 +87,6 @@ namespace UI
         public IEnumerator ClearCoroutine()
         {
             Image clearImage = GetComponent<Image>();
-            Debug.Log(CurrentItem.ClearAnimation.Length);
             for (int i = 0; i < CurrentItem.ClearAnimation.Length; i++)
             {
                 clearImage.sprite = CurrentItem.ClearAnimation[i];

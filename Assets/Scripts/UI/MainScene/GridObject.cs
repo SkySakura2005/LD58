@@ -36,7 +36,7 @@ namespace UI.MainScene
                 for (int j = 0; j < UnlockedGrid.GetLength(1); j++)
                 {
                     UnlockedGrid[i, j] = false;
-                    _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(1,0,0,0.5f);
+                    _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(0.4f,0.4f,0.4f,1);
                     if (i >= 1 && j >= 1 && i <= 3 && j <= 3)
                     {
                         UnlockedGrid[i, j] = true;
@@ -75,9 +75,7 @@ namespace UI.MainScene
             {
                 row = -1;
                 col = -1;
-                return;
             }
-            //UpdateGridView(row, col);
         }
 
         public void UpdateUnlockedGrid()
@@ -92,18 +90,25 @@ namespace UI.MainScene
                     }
                     else
                     {
-                        _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(1,0,0,0.5f);
+                        _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(0.4f,0.4f,0.4f,1);
                     }
                 }
             }
         }
-        private void UpdateGridView(int row, int col)
+        public void UpdateGridView(Vector2 pos)
         {
-            if (tmpRow!=-1 && tmpCol!=-1&&tmpRow!=row &&tmpCol!=col)
+            int row, col;
+            GetIndex(pos, out row, out col);
+            if (tmpRow!=-1 && tmpCol!=-1&&(tmpRow!=row||tmpCol!=col))
             {
                 _gridObjectList[tmpRow*UnlockedGrid.GetLength(1)+tmpCol].GetComponent<Image>().color = new Color(0,0,0,0);
             }
-            _gridObjectList[row*UnlockedGrid.GetLength(1)+col].GetComponent<Image>().color = new Color(1,1,0,0.4f);
+
+            if (row != -1 && col != -1)
+            {
+                _gridObjectList[row * UnlockedGrid.GetLength(1) + col].GetComponent<Image>().color =
+                    new Color(1, 1, 0, 0.4f);
+            }
             tmpRow = row;
             tmpCol = col;
         }
@@ -120,6 +125,7 @@ namespace UI.MainScene
             dragItem.transform.SetParent(_gridObjectList[row*_gridLayoutGroup.constraintCount+col].transform);
             if (_itemGrid[row, col] != null)
             {
+                AudioManager.Instance.PlaySound("Cover");
                 LevelStatics.CurrentScore -= AddScoreStatics.ScoreF;
             }
             _itemGrid[row, col] = dragItem.CurrentItem;
@@ -223,7 +229,6 @@ namespace UI.MainScene
                             .transform.GetChild(0);
                         StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
-                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -238,7 +243,6 @@ namespace UI.MainScene
                             .transform.GetChild(0);
                         StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
-                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -253,7 +257,6 @@ namespace UI.MainScene
                             .transform.GetChild(0);
                         StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
-                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }
@@ -268,7 +271,6 @@ namespace UI.MainScene
                             .transform.GetChild(0);
                         StartCoroutine(toBeDeleted.GetComponent<DragItem>().ClearCoroutine());
                         _itemGrid[(int)pos.x, (int)pos.y] = null;
-                        Debug.Log(pos.x+" "+pos.y);
                     }
                 }
             }

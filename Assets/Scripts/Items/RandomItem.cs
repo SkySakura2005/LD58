@@ -9,20 +9,6 @@ namespace DefaultNamespace.Items
 {
     public static class RandomItem
     {
-        /*public static IItem GetRandomItem()
-        {
-            var assembly=Assembly.GetExecutingAssembly();
-            var itemType=assembly.GetTypes().Where(t=>typeof(IItem).IsAssignableFrom(t)&&!t.IsInterface&&!t.IsAbstract).ToList();
-            if (!itemType.Any())
-            {
-                throw new InvalidOperationException("No implementations of IIte,=m found");
-            }
-            var random = new Random();
-            var selectedItem=itemType[random.Next(0,itemType.Count)];
-            
-            return (IItem)Activator.CreateInstance(selectedItem);
-        }*/
-
         public static BaseItem GetRandomItem()
         {
             Random random = new Random();
