@@ -28,6 +28,7 @@ namespace UI.TutorialScene
                 }
                 else
                 {
+                    LevelStatics.CurrentLevel = 1;
                     LevelStatics.LoadLevels(LevelStatics.LevelsDatas[0]);
                     SceneManager.LoadSceneAsync(2);
                 }

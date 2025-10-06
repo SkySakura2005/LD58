@@ -21,9 +21,19 @@ namespace UI.MainScene.Results
                 {
                     LevelStatics.CurrentLevel++;
                     LevelStatics.MaxLevel++;
-                    LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel]);
+                    LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel-1]);
+                    SceneManager.LoadSceneAsync(2);
                 }
-                SceneManager.LoadSceneAsync(2);
+                else if(LevelStatics.CurrentLevel != LevelStatics.MaxLevel)
+                {
+                    LevelStatics.CurrentLevel++;
+                    LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel-1]);
+                    SceneManager.LoadSceneAsync(2);
+                }
+                else if (LevelStatics.MaxLevel == 10)
+                {
+                    SceneManager.LoadSceneAsync(1);
+                }
             });
             backButton.onClick.AddListener(() =>
             {
