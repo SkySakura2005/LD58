@@ -18,11 +18,18 @@ namespace UI.MainScene.Results
                 if (LevelStatics.CurrentLevel < 10)
                 {
                     LevelStatics.CurrentLevel++;
-                    //LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel]);
+                    LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel]);
                 }
                 SceneManager.LoadSceneAsync(2);
             });
-            backButton.onClick.AddListener(() => SceneManager.LoadSceneAsync(1));
+            backButton.onClick.AddListener(() =>
+            {
+                if (LevelStatics.CurrentLevel < 10)
+                {
+                    LevelStatics.CurrentLevel++;
+                }
+                SceneManager.LoadSceneAsync(1);
+            });
         }
 
         private void OnEnable()

@@ -25,7 +25,7 @@ namespace UI.SelectScene
                 {
                     selectButtons[i].onClick.AddListener(()=>
                     {
-                        //LevelStatics.LoadLevels(LevelStatics.LevelsDatas[index]);
+                        LevelStatics.LoadLevels(LevelStatics.LevelsDatas[index]);
                         SceneManager.LoadSceneAsync(2);
                     });
                 }

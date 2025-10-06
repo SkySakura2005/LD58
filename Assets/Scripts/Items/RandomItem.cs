@@ -29,7 +29,7 @@ namespace DefaultNamespace.Items
             var ipTypeValue = (int[])Enum.GetValues(typeof(IPType));
             var randomIPTypeValue = ipTypeValue[random.Next(0, ipTypeValue.Length)];
             int randomNum;
-            CraftType randomCraftTypeValue ;
+            CraftType randomCraftTypeValue;
             do
             {
                 randomNum = random.Next(0, 100);
@@ -51,7 +51,6 @@ namespace DefaultNamespace.Items
                     randomCraftTypeValue = CraftType.Decoration;
                 }
             }while ((int)randomCraftTypeValue >=LevelStatics.MaxCraftType);
-
             BaseItem randomItem = new BaseItem(Resources.Load<Sprite>("ArtAssets/Items/Item_"+(int)randomIPTypeValue+"_"+(int)randomCraftTypeValue)
                 ,(IPType)randomIPTypeValue,randomCraftTypeValue);
             return randomItem;

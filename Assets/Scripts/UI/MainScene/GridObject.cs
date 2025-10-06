@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DefaultNamespace.Items;
+using DefaultNamespace.Statics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -98,6 +99,10 @@ namespace UI.MainScene
                 Destroy(toBeDeleted.gameObject);
             }
             dragItem.transform.SetParent(_gridObjectList[row*_gridLayoutGroup.constraintCount+col].transform);
+            if (_itemGrid[row, col] != null)
+            {
+                LevelStatics.CurrentScore -= AddScoreStatics.ScoreF;
+            }
             _itemGrid[row, col] = dragItem.CurrentItem;
             standardPos = transform.position+new Vector3(
                 col*(_gridLayoutGroup.cellSize.x+_gridLayoutGroup.spacing.x)+_gridLayoutGroup.cellSize.x/2,
@@ -173,6 +178,7 @@ namespace UI.MainScene
                 itemHorizontalByCraft.Add(new Vector2(currentRow,currentCol));
             }
             
+            ChangeScore(itemVerticalByIP, itemHorizontalByIP, itemVerticalByCraft, itemHorizontalByCraft,startRow,startCol);
             ClearConditionItem(itemVerticalByIP, itemHorizontalByIP, itemVerticalByCraft, itemHorizontalByCraft,startRow,startCol);
         }
 
@@ -261,6 +267,135 @@ namespace UI.MainScene
             _gridObjectList[row * UnlockedGrid.GetLength(1) + col]
                 .transform.DetachChildren();
             Destroy(startContent.gameObject);
+        }
+
+        private void ChangeScore(List<Vector2> itemVerticalByIP, List<Vector2> itemHorizontalByIP,
+            List<Vector2> itemVerticalByCraft, List<Vector2> itemHorizontalByCraft,int row,int col)
+        {
+            if (itemVerticalByIP.Count < 2 && itemHorizontalByIP.Count < 2 && itemVerticalByCraft.Count < 2 &&
+                itemHorizontalByCraft.Count < 2)
+            {
+                return;
+            }
+            if (itemHorizontalByCraft.Count >= 2)
+            {
+                if (itemHorizontalByCraft.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if (itemHorizontalByCraft.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if(itemHorizontalByIP[0]==itemHorizontalByCraft[0]&&itemHorizontalByIP[1]==itemHorizontalByCraft[1])
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreE;
+                }
+                else if(itemHorizontalByIP.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if(itemHorizontalByIP.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if (_itemGrid[row,col].IPType!=_itemGrid[(int)itemHorizontalByCraft[0].x,(int)itemHorizontalByCraft[0].y].IPType&&
+                         _itemGrid[row,col].IPType!=_itemGrid[(int)itemHorizontalByCraft[1].x,(int)itemHorizontalByCraft[1].y].IPType&&
+                         _itemGrid[(int)itemHorizontalByCraft[0].x,(int)itemHorizontalByCraft[0].y].IPType!=_itemGrid[(int)itemHorizontalByCraft[1].x,(int)itemHorizontalByCraft[1].y].IPType)
+                {
+                    if ((int)_itemGrid[row, col].CraftType <= 1)
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD1;
+                    }
+                    else if ((int)_itemGrid[row, col].CraftType <= 3)
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD2;
+                    }
+                    else
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD3;
+                    }
+                }
+                else
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreA;    
+                }
+            }
+            else
+            {
+                if (itemHorizontalByIP.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if (itemHorizontalByIP.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if (itemHorizontalByIP.Count == 2)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreA;    
+                }
+            }
+            
+            if (itemVerticalByCraft.Count >= 2)
+            {
+                if (itemVerticalByCraft.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if (itemVerticalByCraft.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if(itemVerticalByIP[0]==itemVerticalByCraft[0]&&itemVerticalByIP[1]==itemVerticalByCraft[1])
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreE;
+                }
+                else if(itemVerticalByIP.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if(itemVerticalByIP.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if (_itemGrid[row,col].IPType!=_itemGrid[(int)itemVerticalByCraft[0].x,(int)itemVerticalByCraft[0].y].IPType&&
+                         _itemGrid[row,col].IPType!=_itemGrid[(int)itemVerticalByCraft[1].x,(int)itemVerticalByCraft[1].y].IPType&&
+                         _itemGrid[(int)itemVerticalByCraft[0].x,(int)itemVerticalByCraft[0].y].IPType!=_itemGrid[(int)itemVerticalByCraft[1].x,(int)itemVerticalByCraft[1].y].IPType)
+                {
+                    if ((int)_itemGrid[row, col].CraftType <= 1)
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD1;
+                    }
+                    else if ((int)_itemGrid[row, col].CraftType <= 3)
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD2;
+                    }
+                    else
+                    {
+                        LevelStatics.CurrentScore += AddScoreStatics.ScoreD3;
+                    }
+                }
+                else
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreA;    
+                }
+            }
+            else
+            {
+                if (itemVerticalByIP.Count == 3)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreB;
+                }
+                else if (itemVerticalByIP.Count == 4)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreC;
+                }
+                else if(itemVerticalByIP.Count == 2)
+                {
+                    LevelStatics.CurrentScore += AddScoreStatics.ScoreA;    
+                }
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace.Statics.Interface;
+using Statics.Implement;
 using UnityEngine;
 
 namespace DefaultNamespace.Statics
@@ -9,7 +10,11 @@ namespace DefaultNamespace.Statics
         public static bool isNew = true;
         
         public static int CurrentLevel = 1;
-        public static ILevelData[] LevelsDatas=new ILevelData[10];
+        public static ILevelData[] LevelsDatas=new ILevelData[10]
+        {
+            new Level1Data(),new Level2Data(),new Level3Data(),new Level4Data(),new Level5Data(),
+            new Level6Data(),new Level7Data(),new Level8Data(),new Level9Data(),new Level10Data(),
+        };
         
         public static int MaxCraftType = 3;
         public static int MaxUnlockedQueue = 2;
