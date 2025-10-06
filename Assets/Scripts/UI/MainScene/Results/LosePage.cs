@@ -14,7 +14,11 @@ namespace UI.MainScene.Results
 
         private void Start()
         {
-            restartButton.onClick.AddListener(() => SceneManager.LoadSceneAsync(2));
+            restartButton.onClick.AddListener(() =>
+            {
+                LevelStatics.LoadLevels(LevelStatics.LevelsDatas[LevelStatics.CurrentLevel]);
+                SceneManager.LoadSceneAsync(2);
+            });
             backButton.onClick.AddListener(() => SceneManager.LoadSceneAsync(1));
         }
 
