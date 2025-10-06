@@ -6,7 +6,7 @@ namespace UI.MainScene.Store.Implement
 {
     public class AddSpaceButton:IStoreType,ISpaceButton
     {
-        public int Price { get; } = 30;
+        public int Price { get; } = 20;
         public string Text { get; }
         
         public GameObject unlockPage { get; set; }
