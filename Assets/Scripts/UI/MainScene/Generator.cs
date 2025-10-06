@@ -27,6 +27,7 @@ namespace UI
             {
                 throw new UnityException("GeneratorsObjectList count is not equal to maxGeneratorSize");
             }
+            unlockedGeneratorSize = LevelStatics.MaxUnlockedQueue;
             UpdateView();
         }
         

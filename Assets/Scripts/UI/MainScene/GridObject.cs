@@ -79,6 +79,23 @@ namespace UI.MainScene
             //UpdateGridView(row, col);
         }
 
+        public void UpdateUnlockedGrid()
+        {
+            for (int i = 0; i < UnlockedGrid.GetLength(0); i++)
+            {
+                for (int j = 0; j < UnlockedGrid.GetLength(1); j++)
+                {
+                    if (UnlockedGrid[i, j])
+                    {
+                        _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(0,0,0,0);
+                    }
+                    else
+                    {
+                        _gridObjectList[i*UnlockedGrid.GetLength(1)+j].GetComponent<Image>().color = new Color(1,0,0,0.5f);
+                    }
+                }
+            }
+        }
         private void UpdateGridView(int row, int col)
         {
             if (tmpRow!=-1 && tmpCol!=-1&&tmpRow!=row &&tmpCol!=col)
@@ -117,14 +134,14 @@ namespace UI.MainScene
             int currentRow = startRow;
             int currentCol = startCol;
             List<Vector2> itemVerticalByIP=new List<Vector2>();
-            while (currentRow>=0&&_itemGrid[--currentRow, currentCol]!=null&&
+            while (--currentRow>=0&&_itemGrid[currentRow, currentCol]!=null&&
                    _itemGrid[currentRow, currentCol].IPType == currentItem.IPType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemVerticalByIP.Add(new Vector2(currentRow,currentCol));
             }
             currentRow = startRow;
-            while (currentRow<(_gridObjectList.Count / _gridLayoutGroup.constraintCount)&&
-                   _itemGrid[++currentRow, currentCol]!=null&&
+            while (++currentRow<(_gridObjectList.Count / _gridLayoutGroup.constraintCount)&&
+                   _itemGrid[currentRow, currentCol]!=null&&
                    _itemGrid[currentRow, currentCol].IPType == currentItem.IPType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemVerticalByIP.Add(new Vector2(currentRow,currentCol));
@@ -133,7 +150,7 @@ namespace UI.MainScene
             List<Vector2> itemHorizontalByIP=new List<Vector2>();
             currentRow = startRow;
             currentCol = startCol;
-            while (currentCol>=0&&_itemGrid[currentRow, --currentCol]!=null&&
+            while (--currentCol>=0&&_itemGrid[currentRow, currentCol]!=null&&
                    _itemGrid[currentRow, currentCol].IPType == currentItem.IPType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemHorizontalByIP.Add(new Vector2(currentRow,currentCol));
@@ -149,14 +166,14 @@ namespace UI.MainScene
             List<Vector2> itemVerticalByCraft=new List<Vector2>();
             currentRow = startRow;
             currentCol = startCol;
-            while (currentRow>=0&&_itemGrid[--currentRow, currentCol]!=null&&
+            while (--currentRow>=0&&_itemGrid[currentRow, currentCol]!=null&&
                    _itemGrid[currentRow, currentCol].CraftType == currentItem.CraftType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemVerticalByCraft.Add(new Vector2(currentRow,currentCol));
             }
             currentRow = startRow;
-            while (currentRow<(_gridObjectList.Count / _gridLayoutGroup.constraintCount)&&
-                   _itemGrid[++currentRow, currentCol]!=null &&
+            while (++currentRow<(_gridObjectList.Count / _gridLayoutGroup.constraintCount)&&
+                   _itemGrid[currentRow, currentCol]!=null &&
                    _itemGrid[currentRow, currentCol].CraftType == currentItem.CraftType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemVerticalByCraft.Add(new Vector2(currentRow,currentCol));
@@ -165,14 +182,14 @@ namespace UI.MainScene
             List<Vector2> itemHorizontalByCraft=new List<Vector2>();
             currentRow = startRow;
             currentCol = startCol;
-            while (currentCol>=0&&_itemGrid[currentRow, --currentCol]!=null&&
+            while (--currentCol>=0&&_itemGrid[currentRow, currentCol]!=null&&
                    _itemGrid[currentRow, currentCol].CraftType == currentItem.CraftType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemHorizontalByCraft.Add(new Vector2(currentRow,currentCol));
             }
             currentCol = startCol;
-            while (currentCol< _gridLayoutGroup.constraintCount&&
-                    _itemGrid[currentRow, ++currentCol]!=null &&
+            while (++currentCol< _gridLayoutGroup.constraintCount&&
+                    _itemGrid[currentRow, currentCol]!=null &&
                    _itemGrid[currentRow, currentCol].CraftType == currentItem.CraftType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemHorizontalByCraft.Add(new Vector2(currentRow,currentCol));
