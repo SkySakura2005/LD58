@@ -157,8 +157,8 @@ namespace UI.MainScene
                 itemHorizontalByIP.Add(new Vector2(currentRow,currentCol));
             }
             currentCol = startCol;
-            while (currentCol< _gridLayoutGroup.constraintCount&&
-                    _itemGrid[currentRow, ++currentCol]!=null &&
+            while (++currentCol< _gridLayoutGroup.constraintCount&&
+                    _itemGrid[currentRow, currentCol]!=null &&
                     _itemGrid[currentRow, currentCol].IPType == currentItem.IPType&&UnlockedGrid[currentRow, currentCol])
             {
                 itemHorizontalByIP.Add(new Vector2(currentRow,currentCol));
