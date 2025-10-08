@@ -111,16 +111,16 @@ namespace UI
 
         public IEnumerator ResetAnimation(int index)
         {
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 10; i++)
             {
-                GeneratorsObjectList[index].transform.position+=new Vector3(10f,0f,0f);
-                yield return null;
+                GeneratorsObjectList[index].transform.position+=new Vector3(40f,0f,0f);
+                yield return new WaitForSeconds(1/(float)60);
             }
             GeneratorsObjectList[index].GetComponent<Image>().sprite = _blindBagAnim[0];
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 10; i++)
             {
-                GeneratorsObjectList[index].transform.position-=new Vector3(10f,0f,0f);
-                yield return null;
+                GeneratorsObjectList[index].transform.position-=new Vector3(40f,0f,0f);
+                yield return new WaitForSeconds(1/(float)60);
             }
             _currentTime[index] = 0;
         }
