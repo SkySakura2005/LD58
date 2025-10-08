@@ -2276,7 +2276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unlock New Slot for 30pts
+  m_Text: Unlock New Slot for 20pts
 --- !u!222 &566463176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3223,7 +3223,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unlock New Gacha Bag for 50pts
+  m_Text: Unlock New Gacha Bag for 20pts
 --- !u!222 &707306186
 CanvasRenderer:
   m_ObjectHideFlags: 0
