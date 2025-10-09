@@ -11,6 +11,6 @@ namespace DefaultNamespace.Statics
         public static int ScoreD2=15;
         public static int ScoreD3=50;
         public static int ScoreE=20;
-        public static int ScoreF=20;
+        public static int ScoreF=3;
     }
 }
