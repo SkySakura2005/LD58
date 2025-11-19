@@ -2216,7 +2216,8 @@ GameObject:
   m_Component:
   - component: {fileID: 566463174}
   - component: {fileID: 566463176}
-  - component: {fileID: 566463175}
+  - component: {fileID: 566463177}
+  - component: {fileID: 566463178}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2240,10 +2241,32 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -6.2798}
-  m_SizeDelta: {x: 255.9095, y: 131.6184}
+  m_AnchoredPosition: {x: -10, y: -4.7908}
+  m_SizeDelta: {x: 255.9095, y: 134.5964}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &566463175
+--- !u!222 &566463176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566463173}
+  m_CullTransparentMesh: 1
+--- !u!114 &566463177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566463173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b087ecca4884803965a5299ef0a5407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.MutiLangComponents.TextMutiLang
+  chineseLangText: "\u752820\u70B9\u89E3\u9501\u65B0\u7684\u7A7A\u4F4D"
+  englishLangText: Unlock new slot for 20pts
+--- !u!114 &566463178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2256,7 +2279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2268,23 +2291,15 @@ MonoBehaviour:
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 120
+    m_MinSize: 3
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unlock New Slot for 20pts
---- !u!222 &566463176
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566463173}
-  m_CullTransparentMesh: 1
+  m_Text: Unlock new slot for 20pts
 --- !u!1 &571012011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2311,7 @@ GameObject:
   - component: {fileID: 571012012}
   - component: {fileID: 571012014}
   - component: {fileID: 571012013}
+  - component: {fileID: 571012015}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2335,7 +2351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2364,6 +2380,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571012011}
   m_CullTransparentMesh: 1
+--- !u!114 &571012015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571012011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b087ecca4884803965a5299ef0a5407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.MutiLangComponents.TextMutiLang
+  chineseLangText: "\u7528100\u70B9\u89E3\u9501\u65B0\u7684\u8C37\u5B50\u79CD\u7C7B"
+  englishLangText: Unlock New Craft for 100pts
 --- !u!1 &606708321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3194,7 @@ GameObject:
   - component: {fileID: 707306184}
   - component: {fileID: 707306186}
   - component: {fileID: 707306185}
+  - component: {fileID: 707306187}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -3203,7 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3232,6 +3263,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707306183}
   m_CullTransparentMesh: 1
+--- !u!114 &707306187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707306183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b087ecca4884803965a5299ef0a5407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.MutiLangComponents.TextMutiLang
+  chineseLangText: "\u752820\u70B9\u89E3\u9501\u65B0\u7684\u76F2\u888B"
+  englishLangText: Unlock New Gacha Bag for 20pts
 --- !u!1 &723552770
 GameObject:
   m_ObjectHideFlags: 0

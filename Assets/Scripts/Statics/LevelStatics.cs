@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace DefaultNamespace.Statics
 {
+    public enum LanguageEnum
+    {
+        Chinese,English
+    }
     public static class LevelStatics
     {
         public static bool isNew = true;
@@ -22,6 +26,7 @@ namespace DefaultNamespace.Statics
         public static float MaxTime = 60;
         public static int GoalScore = 100;
         public static int CurrentScore = 0;
+        public static LanguageEnum CurrentLanguage = LanguageEnum.Chinese;
 
         public static void LoadLevels(ILevelData data)
         {

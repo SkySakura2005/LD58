@@ -1,5 +1,6 @@
 using DefaultNamespace.Statics;
 using UI.MainScene.Store.Interface;
+using UI.MutiLangComponents;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ namespace UI.MainScene.Store
             tipText = tipWindow.GetComponent<Text>();
             GetComponent<Button>().onClick.AddListener(() =>
             {
+                DynmaticMutiLangInterpretor interpretor = new DynmaticMutiLangInterpretor();
                 if (storeType is ISpaceButton)
                 {
                     ((ISpaceButton)storeType).gridObject=gridObject;
@@ -31,11 +33,11 @@ namespace UI.MainScene.Store
                 }
                 if (storeType.ClickAction())
                 {
-                    tipBox.MakeMove("Successed!");
+                    tipBox.MakeMove(interpretor.GetDynmaticMutiLang("STORETIPBOX_SUCCESS"));
                 }
                 else
                 {
-                    tipBox.MakeMove("Failed!");
+                    tipBox.MakeMove(interpretor.GetDynmaticMutiLang("STORETIPBOX_FAIL"));
                 }
             }); 
         }
